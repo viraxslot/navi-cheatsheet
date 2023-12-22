@@ -1,0 +1,17 @@
+% git
+
+# Set global git username
+git config --global user.name <name>
+
+# Set global git email
+git config --global user.email <email>
+
+# Set git username for local repo
+git config user.name "Your Name Here"
+
+# Set git email for local repo
+git config user.email your@email.example
+
+# Change username and email for the previous commit
+# You need to set username/email first
+git commit --amend --reset-author
