@@ -13,5 +13,4 @@ git config user.name "Your Name Here"
 git config user.email your@email.example
 
 # Change username and email for the previous commit
-# You need to set username/email first
 git commit --amend --reset-author
