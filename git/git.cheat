@@ -1,16 +1,21 @@
 % git
 
+; Change config
+# Edit local git config
+git config -e
+
 # Set global git username
-git config --global user.name <name>
+git config --global --replace-all user.name "<name>"
 
 # Set global git email
-git config --global user.email <email>
+git config --global --replace-all user.email "<email>"
 
 # Set git username for local repo
-git config user.name "Your Name Here"
+git config --replace-all user.name "<name>"
 
 # Set git email for local repo
-git config user.email your@email.example
+git config --replace-all user.email "<email>"
 
+; Amend command
 # Change username and email for the previous commit
 git commit --amend --reset-author
