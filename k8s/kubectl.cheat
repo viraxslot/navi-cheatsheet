@@ -1,0 +1,46 @@
+% kubernetes, k8s, kubectl
+
+; Context
+# Get the current context
+kubectl config current-context
+
+; Namespaces
+# Get namespaces
+kubectl get namespaces
+
+; Pods
+# List of pods
+kubectl -n <namespace> get po | grep -i "<filtered_pod>"
+
+# Pods with errors
+kubectl -n <namespace> get pods -A | grep Error
+
+# Connect pod via SSH
+kubectl -n <namespace> exec -it <pod_name> -- /bin/bash
+
+# Get pod logs
+kubectl -n <namespace> logs <pod_name>
+
+# Delete pod
+kubectl -n <namespace> delete pod <pod_name>
+
+; Deployments
+# Describe deployments in a workspace
+kubectl -n <namespace> get deployments
+
+# Find environment variable value in a deployment
+kubectl -n <namespace> exec -it deploy/<deploy_name> -- env | grep -i <environment_variable>
+
+# Scale deployment
+kubectl -n <namespace> scale deploy <deploy_name> --replicas <replicas_count>
+
+; Cronjobs
+# Create a manual cronjob
+kubectl -n <namespace> create job --from=cronjob/<cronjob> <cronjob>-manual
+
+
+; Commands
+$ namespace: bkt --ttl=30d --cache-dir=$HOME/.cache/bkt -- kubectl get namespaces --- --column 1 --header-lines 1
+$ deploy_name: bkt --ttl=30d --cache-dir=$HOME/.cache/bkt -- kubectl -n <namespace> get deployments --- --column 1 --header-lines 1
+$ cronjob: kubectl -n <namespace> get cronjobs --- --column 1 --header-lines 1
+$ pod_name: kubectl -n <namespace> get po --- --column 1 --header-lines 1

@@ -1,0 +1,7 @@
+% navi
+
+# Copy local cheatsheet file
+cat <cheat_folder>/<filepath> > ~/.local/share/navi/cheats/personal__navi-cheatsheet/<filename>.cheat
+
+$ filepath: ls <cheat_folder>
+$ filename: basename -- "${filepath%.*}"
